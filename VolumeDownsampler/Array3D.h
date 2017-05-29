@@ -61,6 +61,9 @@ public:
 	///
 	void clear(){ memset(data, 0xFFFFFFF, getSize() * sizeof(T)); }
 
+	///
+	void destroy(){ delete []data; m_iWidth = 0; m_iHeight = 0; m_iDepth = 0; data = NULL;}
+
 	T operator ()(unsigned int i, unsigned int j, unsigned int k) const{ return data[k * getWidth() * getHeight() + j * getWidth() + i]; }
 	T & operator ()(unsigned int i, unsigned int j, unsigned int k){ return data[k * getWidth() * getHeight() + j * getWidth() + i]; }
 
